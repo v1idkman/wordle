@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\srpyv\\OneDrive\\Masaüstü\\Wordle\\Wordle.csproj": {}
+    "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj": {}
   },
   "projects": {
-    "c:\\Users\\srpyv\\OneDrive\\Masaüstü\\Wordle\\Wordle.csproj": {
+    "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\srpyv\\OneDrive\\Masaüstü\\Wordle\\Wordle.csproj",
+        "projectUniqueName": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj",
         "projectName": "Wordle",
-        "projectPath": "c:\\Users\\srpyv\\OneDrive\\Masaüstü\\Wordle\\Wordle.csproj",
+        "projectPath": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj",
         "packagesPath": "C:\\Users\\srpyv\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\srpyv\\OneDrive\\Masaüstü\\Wordle\\obj\\",
+        "outputPath": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\srpyv\\AppData\\Roaming\\NuGet\\NuGet.Config"
