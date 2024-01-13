@@ -1,9 +1,18 @@
 ﻿// Wordle Program (No Colours or Includes)
 
 int lim = 5;
-string word = "SUPER";
+
+// Get random word from a .txt file
+Random random = new Random();
+string[] words = File.ReadAllLines("5_letter_words");
+int index = random.Next(words.Count());
+string word = words[index];
+word = word.ToUpper();
+// Console.WriteLine(word); // correctly takes a word randomly
+
 char[] wordOrder = word.ToCharArray();
 int wordLength = word.Length;
+Console.WriteLine(wordLength); // test word length gives 5?
 string currentDisplay;
 
 for (int i = 0; i < lim; i++) {                      // Each iteration of the guesses
