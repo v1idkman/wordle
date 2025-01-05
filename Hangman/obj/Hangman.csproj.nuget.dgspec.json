@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj": {}
+    "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Hangman\\Hangman.csproj": {}
   },
   "projects": {
-    "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj": {
+    "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Hangman\\Hangman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj",
-        "projectName": "Wordle",
-        "projectPath": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj",
+        "projectUniqueName": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Hangman\\Hangman.csproj",
+        "projectName": "Hangman",
+        "projectPath": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Hangman\\Hangman.csproj",
         "packagesPath": "C:\\Users\\srpyv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\obj\\",
+        "outputPath": "C:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Hangman\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\srpyv\\AppData\\Roaming\\NuGet\\NuGet.Config"

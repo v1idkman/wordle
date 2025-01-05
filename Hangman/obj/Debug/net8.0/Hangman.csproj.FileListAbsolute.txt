@@ -1,0 +1,15 @@
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\bin\Debug\net8.0\Hangman.exe
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\bin\Debug\net8.0\Hangman.deps.json
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\bin\Debug\net8.0\Hangman.runtimeconfig.json
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\bin\Debug\net8.0\Hangman.dll
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\bin\Debug\net8.0\Hangman.pdb
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.AssemblyInfoInputs.cache
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.AssemblyInfo.cs
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.csproj.CoreCompileInputs.cache
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.sourcelink.json
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.dll
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\refint\Hangman.dll
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.pdb
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\Hangman.genruntimeconfig.cache
+c:\Users\srpyv\OneDrive\d_flat_synced\Hangman\obj\Debug\net8.0\ref\Hangman.dll
