@@ -1,0 +1,281 @@
+// WordleForm.cs - GUI version
+using System;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace WordleGUI
+{
+    public partial class WordleForm : Form
+    {
+        private const int MaxGuesses = 5;
+        private const int WordLength = 5;
+        
+        private string targetWord;
+        private int currentGuess = 0;
+        private TextBox[,] letterBoxes;
+        private Label resultLabel;
+        private Button submitButton;
+        private Button newGameButton;
+        private string[] wordList;
+
+        public WordleForm()
+        {
+            InitializeComponent();
+            LoadWordList();
+            InitializeGame();
+        }
+
+        private void LoadWordList()
+        {
+            try
+            {
+                wordList = File.ReadAllLines("5_letter_words");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading word list: {ex.Message}\nThe game will use a default word list.", 
+                    "File Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+                // Fallback word list if file not found
+                wordList = new string[] { "APPLE", "HOUSE", "PLANT", "DRINK", "WORLD", "MUSIC", "HAPPY", "WATER", "EARTH", "LIGHT" };
+            }
+        }
+
+        private void InitializeComponent()
+        {
+            this.Text = "Wordle Game";
+            this.Size = new Size(400, 550);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.BackColor = Color.WhiteSmoke;
+            this.Font = new Font("Segoe UI", 10F);
+        }
+
+        private void InitializeGame()
+        {
+            this.Controls.Clear();
+            currentGuess = 0;
+
+            // Title label
+            Label titleLabel = new Label
+            {
+                Text = "WORDLE",
+                Font = new Font("Arial", 24, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Size = new Size(300, 40),
+                Location = new Point(50, 10),
+                ForeColor = Color.DarkGreen
+            };
+            this.Controls.Add(titleLabel);
+
+            // Select random word
+            Random random = new Random();
+            int index = random.Next(wordList.Length);
+            targetWord = wordList[index].ToUpper();
+            
+            // Create grid of text boxes
+            letterBoxes = new TextBox[MaxGuesses, WordLength];
+            
+            for (int row = 0; row < MaxGuesses; row++)
+            {
+                for (int col = 0; col < WordLength; col++)
+                {
+                    letterBoxes[row, col] = new TextBox
+                    {
+                        Location = new Point(50 + col * 60, 60 + row * 60),
+                        Size = new Size(50, 50),
+                        Font = new Font("Arial", 20, FontStyle.Bold),
+                        MaxLength = 1,
+                        TextAlign = HorizontalAlignment.Center,
+                        CharacterCasing = CharacterCasing.Upper,
+                        ReadOnly = row != 0, // Only first row is editable initially
+                        BackColor = row == 0 ? Color.White : Color.LightGray,
+                        BorderStyle = BorderStyle.FixedSingle
+                    };
+                    
+                    int currentRow = row;
+                    int currentCol = col;
+                    
+                    letterBoxes[row, col].KeyDown += (sender, e) => 
+                    {
+                        if (e.KeyCode == Keys.Back)
+                        {
+                            // Allow backspace to work normally
+                            if (currentCol > 0 && string.IsNullOrEmpty(letterBoxes[currentRow, currentCol].Text))
+                            {
+                                // If current box is empty and backspace is pressed, move to previous box
+                                letterBoxes[currentRow, currentCol - 1].Focus();
+                                letterBoxes[currentRow, currentCol - 1].Text = "";
+                                e.SuppressKeyPress = true;
+                            }
+                        }
+                        else if (e.KeyCode == Keys.Enter)
+                        {
+                            SubmitGuess();
+                            e.SuppressKeyPress = true;
+                        }
+                        else if (char.IsLetter((char)e.KeyValue))
+                        {
+                            // Auto-advance to next box after typing a letter
+                            if (currentCol < WordLength - 1)
+                            {
+                                e.SuppressKeyPress = true;
+                                letterBoxes[currentRow, currentCol].Text = ((char)e.KeyValue).ToString().ToUpper();
+                                letterBoxes[currentRow, currentCol + 1].Focus();
+                            }
+                        }
+                        else
+                        {
+                            // Only allow letters
+                            e.SuppressKeyPress = true;
+                        }
+                    };
+                    
+                    this.Controls.Add(letterBoxes[row, col]);
+                }
+            }
+            
+            // Result label
+            resultLabel = new Label
+            {
+                Location = new Point(50, 370),
+                Size = new Size(300, 60),
+                Font = new Font("Arial", 12),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            this.Controls.Add(resultLabel);
+            
+            // Submit button
+            submitButton = new Button
+            {
+                Text = "Submit",
+                Location = new Point(100, 440),
+                Size = new Size(80, 40),
+                BackColor = Color.LightBlue,
+                FlatStyle = FlatStyle.Flat
+            };
+            submitButton.Click += (sender, e) => SubmitGuess();
+            this.Controls.Add(submitButton);
+            
+            // New Game button
+            newGameButton = new Button
+            {
+                Text = "New Game",
+                Location = new Point(200, 440),
+                Size = new Size(100, 40),
+                BackColor = Color.LightGreen,
+                FlatStyle = FlatStyle.Flat
+            };
+            newGameButton.Click += (sender, e) => InitializeGame();
+            this.Controls.Add(newGameButton);
+
+            // Instructions label
+            Label instructionsLabel = new Label
+            {
+                Text = "Green = Correct letter, correct position\n" +
+                       "Yellow = Correct letter, wrong position\n" +
+                       "Gray = Letter not in word",
+                Location = new Point(50, 490),
+                Size = new Size(300, 50),
+                Font = new Font("Arial", 8),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            this.Controls.Add(instructionsLabel);
+
+            // Focus on first box
+            letterBoxes[0, 0].Focus();
+        }
+
+        private void SubmitGuess()
+        {
+            // Collect the current guess
+            string guess = "";
+            for (int i = 0; i < WordLength; i++)
+            {
+                guess += letterBoxes[currentGuess, i].Text;
+            }
+            
+            // Check if the guess is complete
+            if (guess.Length != WordLength)
+            {
+                resultLabel.Text = "Please enter a complete 5-letter word";
+                resultLabel.ForeColor = Color.Red;
+                return;
+            }
+            
+            // Process the guess
+            if (guess == targetWord)
+            {
+                // Correct guess
+                for (int i = 0; i < WordLength; i++)
+                {
+                    letterBoxes[currentGuess, i].BackColor = Color.Green;
+                    letterBoxes[currentGuess, i].ForeColor = Color.White;
+                }
+                resultLabel.Text = "Correct! The word was: " + targetWord;
+                resultLabel.ForeColor = Color.Green;
+                DisableInput();
+                return;
+            }
+            
+            // Process feedback for incorrect guess
+            for (int i = 0; i < WordLength; i++)
+            {
+                if (guess[i] == targetWord[i])
+                {
+                    // Correct letter in correct position
+                    letterBoxes[currentGuess, i].BackColor = Color.Green;
+                    letterBoxes[currentGuess, i].ForeColor = Color.White;
+                }
+                else if (targetWord.Contains(guess[i]))
+                {
+                    // Correct letter in wrong position
+                    letterBoxes[currentGuess, i].BackColor = Color.Gold;
+                }
+                else
+                {
+                    // Letter not in the word
+                    letterBoxes[currentGuess, i].BackColor = Color.DimGray;
+                    letterBoxes[currentGuess, i].ForeColor = Color.White;
+                }
+            }
+            
+            currentGuess++;
+            
+            // Check if out of guesses
+            if (currentGuess >= MaxGuesses)
+            {
+                resultLabel.Text = "Game over! The word was: " + targetWord;
+                resultLabel.ForeColor = Color.Red;
+                DisableInput();
+                return;
+            }
+            
+            // Enable next row
+            for (int i = 0; i < WordLength; i++)
+            {
+                letterBoxes[currentGuess - 1, i].ReadOnly = true;
+                letterBoxes[currentGuess, i].ReadOnly = false;
+                letterBoxes[currentGuess, i].BackColor = Color.White;
+            }
+            
+            // Focus on first box of next row
+            letterBoxes[currentGuess, 0].Focus();
+        }
+        
+        private void DisableInput()
+        {
+            submitButton.Enabled = false;
+            for (int row = 0; row < MaxGuesses; row++)
+            {
+                for (int col = 0; col < WordLength; col++)
+                {
+                    letterBoxes[row, col].ReadOnly = true;
+                }
+            }
+        }
+    }
+}

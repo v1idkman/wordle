@@ -26,3 +26,18 @@ c:\Users\srpyv\OneDrive\Masaüstü\Wordle\obj\Debug\net8.0\refint\Wordle.dll
 c:\Users\srpyv\OneDrive\Masaüstü\Wordle\obj\Debug\net8.0\Wordle.pdb
 c:\Users\srpyv\OneDrive\Masaüstü\Wordle\obj\Debug\net8.0\Wordle.genruntimeconfig.cache
 c:\Users\srpyv\OneDrive\Masaüstü\Wordle\obj\Debug\net8.0\ref\Wordle.dll
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\bin\Debug\net8.0\Wordle.exe
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\bin\Debug\net8.0\Wordle.deps.json
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\bin\Debug\net8.0\Wordle.runtimeconfig.json
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\bin\Debug\net8.0\Wordle.dll
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\bin\Debug\net8.0\Wordle.pdb
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.AssemblyInfoInputs.cache
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.AssemblyInfo.cs
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.csproj.CoreCompileInputs.cache
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.sourcelink.json
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.dll
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\refint\Wordle.dll
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.pdb
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\Wordle.genruntimeconfig.cache
+C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\obj\Debug\net8.0\ref\Wordle.dll
