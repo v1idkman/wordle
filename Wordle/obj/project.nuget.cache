@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Tm+WKfAGHXqXTAxyUvDg3hHQ8cajHHn9IzuYToyBBqy0j4io5P1lG4qnotSGbM11AZCbaLsdaDJ5+WOMpAFi5g==",
   "success": true,
   "projectFilePath": "C:\\Users\\srpyv\\OneDrive\\Masaüstü\\C# proj\\wordle\\Wordle\\Wordle.csproj",
+=======
+  "dgSpecHash": "FvO0Ov3xmBwuWeM2JIGINvTtR8L4ickmdMsIirzUAU3HuMjvsRQGch3e9zsJ8NCqAMsVp8Ge9RfSbnGREygF2A==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\srpyv\\OneDrive\\d_flat_synced\\Wordle\\Wordle.csproj",
+>>>>>>> f95ea81af96e1a6d67ffbd56421ff8e385ff5d24
   "expectedPackageFiles": [],
   "logs": []
 }

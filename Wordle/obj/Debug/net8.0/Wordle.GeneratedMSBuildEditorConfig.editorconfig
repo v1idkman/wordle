@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Wordle
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\srpyv\OneDrive\Masaüstü\C# proj\wordle\Wordle\
+=======
+build_property.ProjectDir = c:\Users\srpyv\OneDrive\d_flat_synced\Wordle\
+>>>>>>> f95ea81af96e1a6d67ffbd56421ff8e385ff5d24
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
